@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="sl-SI">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Mermaid</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+</head>
+
+<body>
+  <h1>Risanje diagramov s knjižnico Mermaid</h1>
+
+  <p>
+    <a href="https://mermaid.js.org/">Mermaid</a> je JavaScript knjižnica,
+    ki omogoča enostavno definicijo različnih tipov diagramov.
+    Te lahko preprosto vključimo v
+    <a href="https://mermaid.js.org/intro/getting-started.html#_4-calling-the-mermaid-javascript-api">HTML</a>
+    ali
+    <a href="https://mermaid.js.org/intro/getting-started.html#_3-using-mermaid-plugins">Markdown</a>
+    dokument.
+    Diagrame lahko pripravimo tudi v <a href="https://mermaid.live/">spletnem urejevalniku</a>
+    in jih izvozimo kot slike.
+  </p>
+
+  <h2>Osnovni diagram</h2>
+
+  <p>
+    Diagram tipa <a href="https://mermaid.js.org/syntax/flowchart.html">"flowchart"</a>
+    je sestavljen iz vozlov in povezav med njimi.
+  </p>
+
+  <div class="mermaid">
+    flowchart LR
+    Z(Začetek)
+    P((Proces))
+    K(Konec)
+    N{"`**Napaka**`"}
+
+    Z==>P==>K
+    Z-.->K
+    Z & P-->|ups|N
+
+    style N fill:red
+  </div>
+
+  <h2>Miselni vzorec</h2>
+
+  <p>
+    Mermaid omogoča vnos <a href="https://mermaid.js.org/syntax/mindmap.html">miselnih vzorcev</a>,
+    pri katerih hierarhijo med oblaki enostavno definiramo z zamiki.
+  </p>
+
+  <div class="mermaid">
+    mindmap
+      root)Miselni vzorec(
+        ))Oblak 1((
+          (Podoblak 1)
+          (Podoblak 2)
+        ))Oblak 2((
+          (Podoblak)
+            [Podpodoblak]
+  </div>
+
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: true
+    });
+  </script>
+
+</body>
+
+</html>
